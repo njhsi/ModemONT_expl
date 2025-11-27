@@ -32,10 +32,8 @@ int main(int argc, char **argv)
 
 	for (i = 0; i < shn; i++) {
 		shdr = &shdrs[i];
-		  printf("%d\n",shdr->sh_type);
 		if (shdr->sh_type == SHT_SYMTAB || shdr->sh_type == SHT_DYNSYM)
 		  {
-		  printf("%d\n",shdr->sh_type);
 			syms = (Elf32_Sym *)(mod + shdr->sh_offset);
 			strtab = mod + shdrs[shdr->sh_link].sh_offset;
 			n = shdr->sh_size / shdr->sh_entsize;
